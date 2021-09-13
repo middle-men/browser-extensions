@@ -3,6 +3,9 @@
     "description": "Middle Man is a context aware decentralized forum",
     "version": "0.0.1",
     "manifest_version": 3,
+    "sandbox": {
+        "pages": ["sandbox.html"]
+    },
     "background": {
         "service_worker": "background.js"
     },

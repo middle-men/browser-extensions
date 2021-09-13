@@ -1,0 +1,16 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script type="module">
+        import init, { greet } from "./pkg/wasm.js";
+        init()
+            .then(() => {
+                greet("WebAssembly")
+            })
+    </script>
+</body>
+
+</html>
