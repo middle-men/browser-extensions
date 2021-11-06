@@ -1,12 +1,4 @@
-# Middle Man Browser Extensions
-
-## Chrome
-
-Chrome web extension is currently the [chrome demo](https://developer.chrome.com/docs/extensions/mv3/getstarted/).
-
-## Firefox
-
-***WIP***
+# Omniboard Browser Extensions
 
 ## Development
 
@@ -18,7 +10,7 @@ To build the WebAssembly code, run :
 wasm-pack build --target web
 ```
 
-Then move the generated `pkg` folder to `browser-extensions/<browser>/`.
+Then move the generated `pkg` folder to `browser-extensions/webext/`.
 
 ### Browser extension
 

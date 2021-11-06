@@ -1,0 +1,32 @@
+{
+  "name": "Omniboard",
+  "description": "Omniboard is a context aware decentralized forum",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "build/background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/clipboard16.png",
+      "32": "/images/clipboard32.png",
+      "48": "/images/clipboard48.png",
+      "128": "/images/clipboard128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/clipboard16.png",
+    "32": "/images/clipboard32.png",
+    "48": "/images/clipboard48.png",
+    "128": "/images/clipboard128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["build/content.js"]
+    }
+  ]
+}
