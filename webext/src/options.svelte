@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button, { Label } from '@smui/button';
+  import Button, { Label } from '@smui/button/styled';
  
   let clicked = 0;
   export let button: string;

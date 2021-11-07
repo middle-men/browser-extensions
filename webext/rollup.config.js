@@ -5,7 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
-import css from 'rollup-plugin-css-only';
+import postcss from 'rollup-plugin-postcss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -54,10 +54,6 @@ export default [
           dev: !production,
         },
       }),
-      // we'll extract any component CSS out into
-      // a separate file - better for performance
-      css({ output: 'popup_bundle.css' }),
-
       // If you have external dependencies installed from
       // npm, you'll most likely need these plugins. In
       // some cases you'll need additional configuration -
@@ -84,6 +80,18 @@ export default [
       // If we're building for production (npm run build
       // instead of npm run dev), minify
       production && terser(),
+      postcss({
+        extract: true,
+        minimize: true,
+        use: [
+          [
+            'sass',
+            {
+              includePaths: ['./src/theme', './node_modules'],
+            },
+          ],
+        ],
+      }),
     ],
     watch: {
       clearScreen: false,
@@ -108,9 +116,6 @@ export default [
           dev: !production,
         },
       }),
-      // we'll extract any component CSS out into
-      // a separate file - better for performance
-      css({ output: 'options_bundle.css' }),
 
       // If you have external dependencies installed from
       // npm, you'll most likely need these plugins. In
@@ -138,6 +143,18 @@ export default [
       // If we're building for production (npm run build
       // instead of npm run dev), minify
       production && terser(),
+      postcss({
+        extract: true,
+        minimize: true,
+        use: [
+          [
+            'sass',
+            {
+              includePaths: ['./src/theme', './node_modules'],
+            },
+          ],
+        ],
+      }),
     ],
     watch: {
       clearScreen: false,
